@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center">Анкета</h1>
+    <form method="post" action="/" class="mt-4">
+        <div class="form-group">
+            <label for="firstname">Имя:</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" required>
+        </div>
+        <div class="form-group">
+            <label for="city">Город:</label>
+            <input type="text" class="form-control" id="city" name="city" required>
+        </div>
+        <div class="form-group">
+            <label for="hobby">Хобби:</label>
+            <textarea class="form-control" id="hobby" name="hobby" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="age">Возраст:</label>
+            <input type="text" class="form-control" id="age" name="age" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить анкету</button>
+    </form>
+    <hr class="mt-5">
+    <h2 class="mt-4">Анкеты</h2>
+
+        {% for post in posts %}
+            <div class="card my-3">
+                <p class="card-text">Имя: {{ post.firstname }}</p>
+                <p class="card-text">Город: {{ post.city }}</p>
+                <p class="card-text">Хобби: {{ post.hobby }}</p>
+                <p class="card-text">Возраст: {{ post.age }}</p>
+            </div>
+
+        {% endfor %}
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
